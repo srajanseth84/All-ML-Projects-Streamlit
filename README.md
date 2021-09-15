@@ -1,33 +1,26 @@
 # All ML Projects (Streamlit)
 
+All ML Projects contains 5 Projects (Click to view Original Repo):
+
+* [Neural Style Transfer](https://github.com/srajanseth84/Neural-Style-Transfer)
+* [Food Vision](https://github.com/srajanseth84/Food-Vision)
+* [Fill the Gap (FTG)](https://github.com/srajanseth84/FTG)
+* [Text Generator](https://github.com/srajanseth84/Text-Generator-using-GPT2)
+* [Sentiment Classification](https://github.com/srajanseth84/Sentiment-Classification)
 
 
 
 
-
-## [To View Deployed Demo on Streamlit](https://share.streamlit.io/srajanseth84/all-ml-projects-streamlit/main/app.py)
+## [View Deployed Demo on Streamlit](https://share.streamlit.io/srajanseth84/all-ml-projects-streamlit/main/app.py)
 - Just Select the Project you want to checkout
 
 
 ## Demo
------
 
 ![](extras/demo.gif.gif)
 
 
-### A Few Examples of my Projects
--------------------
-* The beautiful ruins of the ancient city of Persepolis (Iran) with the style of Van Gogh (The Starry Night) 
-  <img src="images/">
-* The tomb of Cyrus the great in Pasargadae with the style of a Ceramic Kashi from Ispahan 
-  <img src="images/">
-* A scientific study of a turbulent fluid with the style of a abstract blue fluid painting
-  <img src = "images/">
-
-
-
 ## Run Locally
-------
 
 * Clone the project
 
@@ -65,6 +58,11 @@
 ```bash
   streamlit run app.py 
 ```
+
+## Tech Stack
+* **Front-End**: [Streamlit](https://github.com/streamlit/streamlit)
+* **Cloud**: [Streamlit Cloud](https://streamlit.io/cloud)
+* **DL-Framework**: [Tensorflow](https://github.com/tensorflow/tensorflow), [Hugging Face](https://huggingface.co/)
 
 
 

@@ -16,7 +16,7 @@ def app():
 
     st.write("### Enter Sentence")
     input = st.text_input(" ")
-    button = st.button("🧐")
+    button = st.button("Find out🧐")
 
     if button and not input:
         st.warning("⚠️ Please INPUT a Sentence ⚠️")
@@ -46,7 +46,7 @@ def app():
                                 my_bar.progress(percent_complete + 1)
     except:
         st.warning("Some **Unexpected** Error happen")
-        st.warning("Please create a **Issue** on [Github](https://github.com/srajanseth84/FTG)")
+        st.warning("Please create a **Issue** on [Github](https://github.com/srajanseth84/Sentiment-Classification)")
 
 
     st.markdown("Created by **Srajan Seth**")

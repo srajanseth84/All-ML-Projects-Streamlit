@@ -2,18 +2,12 @@ import builtins
 import streamlit as st
 import tensorflow as tf
 import pandas as pd
-from Food_Vision.utils import load_and_prep, get_classes
 import altair as alt
+from Food_Vision.utils import load_and_prep, get_classes
 
 def app():
 
-    st.title("Food Vision 🍕📷")
-    st.header("Identify what's in your food photos!")
-    st.write("To know more about this app, visit [**GitHub**](https://github.com/srajanseth84/Food-Vision)")
-    file = st.file_uploader(label="Upload an image of food.",
-                            type=["jpg", "jpeg", "png"])
-
-    @st.cache(hash_funcs={builtins.tuple: lambda _ : None})
+    @st.cache(hash_funcs={builtins.tuple: lambda _: None})
     def predicting(image, model):
         image = load_and_prep(image)
         image = tf.cast(tf.expand_dims(image, axis=0), tf.int16)
@@ -33,6 +27,16 @@ def app():
 
     class_names = get_classes()
 
+    #### Main Body ####
+
+    st.title("Food Vision 🍕📷")
+    st.header("Identify what's in your Food Photos!")
+    st.write(
+        "To know more about this app, visit [**GitHub**](https://github.com/srajanseth84/Food-Vision)")
+    file = st.file_uploader(label="Upload an image of food.",
+                            type=["jpg", "jpeg", "png"])
+
+
     model = tf.keras.models.load_model("Food_Vision/models/EfficientNetB1.hdf5")
 
     if not file:
@@ -42,18 +46,22 @@ def app():
     else:
         image = file.read()
         st.image(image, use_column_width=True)
-        pred_button = st.button("Predict")
-
-    if pred_button:
-        pred_class, pred_conf, df = predicting(image, model)
-        st.success(f'Prediction : {pred_class} \nConfidence : {pred_conf*100:.2f}%')
-        st.write(alt.Chart(df).mark_bar().encode(
-            x='F1 Scores',
-            y=alt.X('Top 5 Predictions', sort=None),
-            color=alt.Color("color", scale=None),
-            text='F1 Scores'
-        ).properties(width=600, height=400))
-
+        pred_button = st.button("Predict 🍕")
+    try:
+        if pred_button:
+            pred_class, pred_conf, df = predicting(image, model)
+            st.success(
+                f'Prediction : {pred_class} \nConfidence : {pred_conf*100:.2f}%')
+            st.write(alt.Chart(df).mark_bar().encode(
+                x='F1 Scores',
+                y=alt.X('Top 5 Predictions', sort=None),
+                color=alt.Color("color", scale=None),
+                text='F1 Scores'
+            ).properties(width=600, height=400))
+    except:
+        st.warning("Some **Unexpected** Error happen")
+        st.warning(
+            "Please create a **Issue** on [Github](https://github.com/srajanseth84/Food-Vision)")
 
     st.markdown("Created by **Srajan Seth**")
     st.markdown(body="""

@@ -17,7 +17,7 @@ All ML Projects contains 5 Projects (Click to view Original Repo):
 
 ## Demo
 
-![](extras/demo.gif.gif)
+![](extras/all-ml.gif)
 
 
 ## Run Locally
